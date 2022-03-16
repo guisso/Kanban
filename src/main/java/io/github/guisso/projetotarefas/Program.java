@@ -27,6 +27,13 @@ public class Program {
 //    public final int GERENTE_PROJETO = 4;
 //    
     public static void main(String[] args) {
+        
+        try {
+            int x = 1 / 0;
+        } catch(Exception ex) {
+            System.out.println(">> " + ex.getMessage());
+        }
+        
 
 //        // Valores numéricos das enumerações
 //        System.out.println(">> "

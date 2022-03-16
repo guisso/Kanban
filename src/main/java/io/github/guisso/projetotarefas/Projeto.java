@@ -65,63 +65,51 @@ public class Projeto {
         aExecutar.add(tarefa);
     }
 
-    // todo Analisar método removerAExecutar(tarefa:Tarefa):void
     public void removerAExecutar(Tarefa tarefa)
             throws RuntimeException {
         if (!aExecutar.contains(tarefa)) {
-            // Dispara exceção interrompendo a execução deste método
-            // e informando ao método invocador que a operação falhou
             throw new RuntimeException("Tentativa de remoção de tarefa inexistente");
         }
-        
-        // Remove a tarefa (apenas se ela existir)
         aExecutar.remove(tarefa);
     }
 
     // todo Implementar método adicionarEmExecucao(tarefa:Tarefa):void
-    // ???
     // todo Implementar método removerEmExecucao(tarefa:Tarefa):void
-    // ???
     // todo Implementar método adicionarConcluida(tarefa:Tarefa):void
-    // ???
     // todo Implementar método removerConluida(tarefa:Tarefa):void
-    // ???
 //    
     public void mover(
             ArrayList<Tarefa> origem,
             ArrayList<Tarefa> destino,
             Tarefa tarefa)
             throws RuntimeException {
-        // todo Implementar movimentação genérica de tarefa entre listas
-        
         // Se a origem não contém a tarefa a ser movida, dispara uma
-        // RunTimeException com mensagem denunciando a ação e
-        // gerando a interrupção do procedimento
-        // ???
+        // RunTimeException gerando a interrupção do procedimento
+        if (!origem.contains(tarefa)) {
+            throw new RuntimeException("Não é possível mover uma tarefa inexistente na lista de origem");
+        }
         
-        // Recupera e armazena o índice da tarefa a ser removida na origem
-        // ???
+        // Armazena o índice da tarefa a ser removida
+        int idx = origem.indexOf(tarefa);
         
         // Adiciona ao destino a tarefa removida na origem
-        // ???
+        destino.add(origem.remove(idx));
     }
 
     public void moverParaEmExecucao(Tarefa tarefa)
             throws RuntimeException {
         // todo Implementar movitação de tarefa de aExcutar para emExecucao
-        // ???
+        mover(aExecutar, emExecucao, tarefa);
     }
 
     public void moverParaConcluidas(Tarefa tarefa)
             throws RuntimeException {
         // todo Implementar movitação de tarefa de emExecucao para concluidas
-        // ???
+        mover(emExecucao, concluidas, tarefa);
     }
 
-    // todo Implementar método adicionarAtuacao(atuacao:Atuacao):void
-    // ???
-    // todo Implementar método removerAtuacao(atuacao:Atuacao):void
-    // ???
+    // todo Implementar inclusão de atuações
+    // todo Implementar remoção de atuações
 //
     //<editor-fold defaultstate="collapsed" desc="toString">
     @Override
